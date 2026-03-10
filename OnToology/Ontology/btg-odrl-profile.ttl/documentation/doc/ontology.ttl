@@ -1,0 +1,263 @@
+@prefix : <https://w3id.org/btg/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix xml: <http://www.w3.org/XML/1998/namespace> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@base <https://w3id.org/btg/> .
+
+<https://w3id.org/btg/> rdf:type owl:Ontology ;
+                         <http://purl.org/dc/elements/1.1/creator> "Juan Cano de Benito" ;
+                         <http://purl.org/dc/terms/issued> "2026-03-09"^^xsd:date ;
+                         <http://purl.org/dc/terms/license> <https://creativecommons.org/licenses/by/4.0/> ;
+                         <http://purl.org/dc/terms/title> "ODRL Profile for clinical emergency access"@en ;
+                         rdfs:seeAlso <https://www.w3.org/TR/odrl-model/> ;
+                         owl:versionInfo "0.3.0" .
+
+#################################################################
+#    Annotation properties
+#################################################################
+
+###  http://purl.org/dc/elements/1.1/creator
+<http://purl.org/dc/elements/1.1/creator> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/description
+<http://purl.org/dc/terms/description> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/issued
+<http://purl.org/dc/terms/issued> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/license
+<http://purl.org/dc/terms/license> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/dc/terms/title
+<http://purl.org/dc/terms/title> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespacePrefix
+<http://purl.org/vocab/vann/preferredNamespacePrefix> rdf:type owl:AnnotationProperty .
+
+
+###  http://purl.org/vocab/vann/preferredNamespaceUri
+<http://purl.org/vocab/vann/preferredNamespaceUri> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#broader
+<http://www.w3.org/2004/02/skos/core#broader> rdf:type owl:AnnotationProperty .
+
+
+###  http://www.w3.org/2004/02/skos/core#definition
+<http://www.w3.org/2004/02/skos/core#definition> rdf:type owl:AnnotationProperty .
+
+
+#################################################################
+#    Datatypes
+#################################################################
+
+###  http://www.w3.org/2001/XMLSchema#date
+xsd:date rdf:type rdfs:Datatype .
+
+
+#################################################################
+#    Classes
+#################################################################
+
+###  http://www.w3.org/ns/odrl/2/LeftOperand
+<http://www.w3.org/ns/odrl/2/LeftOperand> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/odrl/2/Operator
+<http://www.w3.org/ns/odrl/2/Operator> rdf:type owl:Class .
+
+
+###  http://www.w3.org/ns/odrl/2/RightOperand
+<http://www.w3.org/ns/odrl/2/RightOperand> rdf:type owl:Class .
+
+
+#################################################################
+#    Individuals
+#################################################################
+
+###  https://w3id.org/btg/accessScope
+:accessScope rdf:type owl:NamedIndividual ,
+                      <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+             rdfs:label "access scope"@en ;
+             <http://www.w3.org/2004/02/skos/core#definition> "Scope of health data that may be accessed during the emergency session."@en .
+
+
+###  https://w3id.org/btg/activeEmergency
+:activeEmergency rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/ns/odrl/2/RightOperand> ;
+                 rdfs:label "active emergency care"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Professional is actively treating the patient in an emergency."@en .
+
+
+###  https://w3id.org/btg/consentStatus
+:consentStatus rdf:type owl:NamedIndividual ,
+                        <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+               rdfs:label "consent status"@en ;
+               <http://www.w3.org/2004/02/skos/core#definition> "Current state of the patient's consent regarding access to their health data."@en .
+
+
+###  https://w3id.org/btg/consulting
+:consulting rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/ns/odrl/2/RightOperand> ;
+            rdfs:label "consulting specialist"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Professional has been called as a specialist consultant."@en .
+
+
+###  https://w3id.org/btg/denied
+:denied rdf:type owl:NamedIndividual ,
+                 <http://www.w3.org/ns/odrl/2/RightOperand> ;
+        rdfs:label "consent explicitly denied"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Patient explicitly denied access to specific provider or data."@en .
+
+
+###  https://w3id.org/btg/emergencyRelevant
+:emergencyRelevant rdf:type owl:NamedIndividual ,
+                            <http://www.w3.org/ns/odrl/2/RightOperand> ;
+                   rdfs:label "emergency-relevant subset"@en ;
+                   <http://www.w3.org/2004/02/skos/core#definition> "Medications, allergies, active conditions, advance directives."@en .
+
+
+###  https://w3id.org/btg/fullRecord
+:fullRecord rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/ns/odrl/2/RightOperand> ;
+            rdfs:label "full health record"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Complete EHR. Only at life-threatening urgency."@en .
+
+
+###  https://w3id.org/btg/granted
+:granted rdf:type owl:NamedIndividual ,
+                  <http://www.w3.org/ns/odrl/2/RightOperand> ;
+         rdfs:label "consent granted"@en ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Patient has given explicit consent."@en .
+
+
+###  https://w3id.org/btg/isAtLeast
+:isAtLeast rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/ns/odrl/2/Operator> ;
+           rdfs:label "is at least"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "The left operand value is at least as severe as the right operand."@en .
+
+
+###  https://w3id.org/btg/isExactly
+:isExactly rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/ns/odrl/2/Operator> ;
+           rdfs:label "is exactly"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "The left operand value is exactly equal to the right operand."@en .
+
+
+###  https://w3id.org/btg/isNotEqual
+:isNotEqual rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/ns/odrl/2/Operator> ;
+            rdfs:label "is not equal to"@en ;
+            <http://www.w3.org/2004/02/skos/core#definition> "The left operand value differs from the right operand."@en .
+
+
+###  https://w3id.org/btg/justificationDeadline
+:justificationDeadline rdf:type owl:NamedIndividual ,
+                                <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+                       rdfs:label "justification deadline"@en ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "Maximum elapsed time after emergency access within which clinical justification must be filed."@en .
+
+
+###  https://w3id.org/btg/lifeThreatening
+:lifeThreatening rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/ns/odrl/2/RightOperand> ;
+                 rdfs:label "life-threatening"@en ;
+                 <http://www.w3.org/2004/02/skos/core#broader> :urgent ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Immediate threat to life. ESI Level 1."@en .
+
+
+###  https://w3id.org/btg/medicationOnly
+:medicationOnly rdf:type owl:NamedIndividual ,
+                         <http://www.w3.org/ns/odrl/2/RightOperand> ;
+                rdfs:label "medication and allergies only"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "Only medication and allergy records."@en .
+
+
+###  https://w3id.org/btg/none
+:none rdf:type owl:NamedIndividual ,
+               <http://www.w3.org/ns/odrl/2/RightOperand> ;
+      rdfs:label "no prior relationship"@en ;
+      <http://www.w3.org/2004/02/skos/core#definition> "No prior clinical relationship with the patient."@en .
+
+
+###  https://w3id.org/btg/notAvailable
+:notAvailable rdf:type owl:NamedIndividual ,
+                       <http://www.w3.org/ns/odrl/2/RightOperand> ;
+              rdfs:label "consent not available"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Patient unable to consent (unconscious, incapacitated)."@en .
+
+
+###  https://w3id.org/btg/onCall
+:onCall rdf:type owl:NamedIndividual ,
+                 <http://www.w3.org/ns/odrl/2/RightOperand> ;
+        rdfs:label "on-call coverage"@en ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Professional is covering for the regular provider."@en .
+
+
+###  https://w3id.org/btg/routine
+:routine rdf:type owl:NamedIndividual ,
+                  <http://www.w3.org/ns/odrl/2/RightOperand> ;
+         rdfs:label "routine"@en ;
+         <http://www.w3.org/2004/02/skos/core#definition> "Standard care. No emergency override permitted."@en .
+
+
+###  https://w3id.org/btg/semiUrgent
+:semiUrgent rdf:type owl:NamedIndividual ,
+                     <http://www.w3.org/ns/odrl/2/RightOperand> ;
+            rdfs:label "semi-urgent"@en ;
+            <http://www.w3.org/2004/02/skos/core#broader> :routine ;
+            <http://www.w3.org/2004/02/skos/core#definition> "Attention needed but not immediately life-threatening. ESI Level 3."@en .
+
+
+###  https://w3id.org/btg/sessionDuration
+:sessionDuration rdf:type owl:NamedIndividual ,
+                          <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+                 rdfs:label "session duration"@en ;
+                 <http://www.w3.org/2004/02/skos/core#definition> "Elapsed time since the emergency access session started."@en .
+
+
+###  https://w3id.org/btg/treatmentRelationship
+:treatmentRelationship rdf:type owl:NamedIndividual ,
+                                <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+                       rdfs:label "treatment relationship"@en ;
+                       <http://www.w3.org/2004/02/skos/core#definition> "Nature of the clinical relationship between the requesting professional and the patient."@en .
+
+
+###  https://w3id.org/btg/urgencyLevel
+:urgencyLevel rdf:type owl:NamedIndividual ,
+                       <http://www.w3.org/ns/odrl/2/LeftOperand> ;
+              rdfs:label "urgency level"@en ;
+              <http://www.w3.org/2004/02/skos/core#definition> "Clinical urgency level of the patient's condition, assessed via triage (e.g. ESI scale)."@en .
+
+
+###  https://w3id.org/btg/urgent
+:urgent rdf:type owl:NamedIndividual ,
+                 <http://www.w3.org/ns/odrl/2/RightOperand> ;
+        rdfs:label "urgent"@en ;
+        <http://www.w3.org/2004/02/skos/core#broader> :semiUrgent ;
+        <http://www.w3.org/2004/02/skos/core#definition> "Prompt attention needed; delay risks deterioration. ESI Level 2."@en .
+
+
+###  https://w3id.org/btg/withdrawn
+:withdrawn rdf:type owl:NamedIndividual ,
+                    <http://www.w3.org/ns/odrl/2/RightOperand> ;
+           rdfs:label "consent withdrawn"@en ;
+           <http://www.w3.org/2004/02/skos/core#definition> "Patient previously withdrew consent."@en .
+
+
+###  https://w3id.org/btg/withinDuration
+:withinDuration rdf:type owl:NamedIndividual ,
+                         <http://www.w3.org/ns/odrl/2/Operator> ;
+                rdfs:label "within duration"@en ;
+                <http://www.w3.org/2004/02/skos/core#definition> "The left operand duration has not exceeded the right operand duration."@en .
+
+
+###  Generated by the OWL API (version 5.1.18) https://github.com/owlcs/owlapi/
