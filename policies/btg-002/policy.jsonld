@@ -1,0 +1,41 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/odrl.jsonld",
+    { "btg": "https://w3id.org/btg/" }
+  ],
+  "@type": "Set",
+  "uid": "https://w3id.org/btg/policies/btg-002",
+  "profile": "https://w3id.org/btg/",
+  "permission": [
+    {
+      "target": "https://example.com/patient/42/ehr",
+      "assignee": "https://example.com/dr/bengt",
+      "action": "use",
+      "constraint": [
+        {
+          "leftOperand": "btg:urgencyLevel",
+          "operator": "btg:isAtLeast",
+          "rightOperand": "btg:urgent"
+        },
+        {
+          "leftOperand": "btg:treatmentRelationship",
+          "operator": "btg:isExactly",
+          "rightOperand": "btg:activeEmergency"
+        },
+        {
+          "leftOperand": "btg:accessScope",
+          "operator": "btg:isExactly",
+          "rightOperand": "btg:emergencyRelevant"
+        },
+        {
+          "leftOperand": "btg:sessionDuration",
+          "operator": "btg:withinDuration",
+          "rightOperand": {
+            "@value": "PT4H",
+            "@type": "xsd:duration"
+          }
+        }
+      ]
+    }
+  ]
+}

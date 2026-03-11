@@ -1,0 +1,49 @@
+{
+  "@context": [
+    "http://www.w3.org/ns/odrl.jsonld",
+    { "btg": "https://w3id.org/btg/" }
+  ],
+  "@type": "Set",
+  "uid": "https://w3id.org/btg/policies/btg-003",
+  "profile": "https://w3id.org/btg/",
+  "prohibition": [
+    {
+      "target": "https://example.com/patient/42/ehr",
+      "action": "use",
+      "constraint": [
+        {
+          "leftOperand": "btg:consentStatus",
+          "operator": "btg:isExactly",
+          "rightOperand": "btg:denied"
+        }
+      ],
+      "remedy": [
+        {
+          "action": "use",
+          "constraint": [
+            {
+              "leftOperand": "btg:urgencyLevel",
+              "operator": "btg:isAtLeast",
+              "rightOperand": "btg:lifeThreatening"
+            }
+          ],
+          "duty": [
+            {
+              "action": "inform",
+              "constraint": [
+                {
+                  "leftOperand": "btg:justificationDeadline",
+                  "operator": "btg:withinDuration",
+                  "rightOperand": {
+                    "@value": "PT24H",
+                    "@type": "xsd:duration"
+                  }
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
